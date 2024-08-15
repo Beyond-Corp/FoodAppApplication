@@ -1,0 +1,37 @@
+{% extends "food/base.html" %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <h3 class="card-title">Login</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                        <div class="form-group mb-3"> <!-- Ajout d'un espacement supplémentaire -->
+                            {{ field.label_tag }}
+                            <br>
+                            {{ field }}
+                            <!-- Affichage des erreurs de validation du formulaire -->
+                            {% if field.errors %}
+                                <div class="text-danger">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        <br>
+                        <button class="btn btn-info w-100" type="submit">Sign In</button> <!-- Le bouton prend la largeur du conteneur -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

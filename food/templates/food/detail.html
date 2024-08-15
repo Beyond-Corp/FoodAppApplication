@@ -1,0 +1,29 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6" >
+<img src="{{item.item_image}}" height="300px"/>
+        </div>
+        <div class="col-md-6">
+
+<!--             # # 🚩🚩🚩🚩🚩VIDEO 58🚩🚩🚩🚩🚩 # CLASS BASE URLS # -> for detail   -->
+            <h1>{{ item.item_name }}</h1>
+<h2>{{ item.item_describe }}</h2>
+<h3>${{ item.item_price }}</h3>
+             <h6>{{ item.user_name }}</h6>
+
+            <a href="{% url 'food:delete_item' item.pk %}">Delete</a>
+            
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{% endblock %}
